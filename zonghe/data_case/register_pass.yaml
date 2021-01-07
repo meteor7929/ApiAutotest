@@ -1,0 +1,9 @@
+# 密码长度6位
+- data: {'mobilephone': '18005947785', 'pwd': '123456','regname':'小北'}
+  expect: {'status': 1, 'code': '10001', 'data': None, 'msg': '注册成功'}
+# 密码长度18位
+- data: {'mobilephone': '18079557235', 'pwd': '123456789012345678','regname':'小北'}
+  expect: {'status': 1, 'code': '10001', 'data': None, 'msg': '注册成功'}
+# 昵称为空
+- data: {'mobilephone': '18079557235', 'pwd': '1234567890','regname':''}
+  expect: {'status': 1, 'code': '10001', 'data': None, 'msg': '注册成功'}

@@ -1,0 +1,32 @@
+'''
+fixture 带参数
+
+测试搜索功能：
+    要搜索的字符串：大写、小写、大小写混合
+    搜索的方向：向上、向下
+    是否区分大小写：是、否
+'''
+import pytest
+
+
+# 要搜索的字符串：大写、小写、大小写混合
+@pytest.fixture(params=["hello", 'apple', 'HelloWorld'])
+def search_str(request):
+    return request.param
+
+
+# 搜索的方向：向上、向下
+@pytest.fixture(params=['向上', '向下'])
+def search_direction(request):
+    return request.param
+
+
+# 是否区分大小写：是、否
+@pytest.fixture(params=['是', '否'])
+def search_dx(request):
+    return request.param
+
+
+# 用例中多个fixture带参数时，参数之间是全组合关系，共执行3*2*2=12次
+def test_search(search_str, search_direction, search_dx):
+    print(f"搜索的字符串为：{search_str},搜索的方向为:{search_direction},{search_dx}区分大小写")

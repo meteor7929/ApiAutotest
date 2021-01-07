@@ -1,0 +1,6 @@
+# 密码长度6位
+- data: {'mobilephone': 18005947785, 'pwd': 123456}
+  expect: {'status': 0, 'code': '20110', 'data': None, 'msg': '手机号码已被注册'}
+# 密码长度18位
+- data: {'mobilephone': 18079557235, 'pwd': 123456789012345678}
+  expect: {'status': 0, 'code': '20110', 'data': None, 'msg': '手机号码已被注册'}

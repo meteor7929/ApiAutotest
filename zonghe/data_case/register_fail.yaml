@@ -1,0 +1,30 @@
+# 密码长度小于6位
+- data: {'mobilephone': 18695716735, 'pwd': 12345,'regname':'小北'}
+  expect: {'status': 0, 'code': '20108', 'data': None, 'msg': '密码长度必须为6~18'}
+# 密码长度大于18位
+- data: {'mobilephone': 18605716435, 'pwd': 1234567890123456789,'regname':'小北'}
+  expect: {'status': 0, 'code': '20108', 'data': None, 'msg': '密码长度必须为6~18'}
+# 服务器异常
+- data: {'mobilephone': 18605716435, 'pwd': 123456789012345678,'regname':'小北小那就好多少级女个我女会计计的内立会计的撒牛刀次无按此陈多少级女个我女会计计的内立会计的撒牛刀次无按此丽娜内立法来看你了安徽阿克江小北小'}
+  expect: {'status': 0, 'code': '20102', 'data': None, 'msg': '服务器异常'}
+# 手机号为空
+- data: {'mobilephone':'', 'pwd': 123456789012345678,'regname':'小北'}
+  expect: {'status': 0, 'code': '20103', 'data': None, 'msg': '手机号不能为空'}
+# 密码为空
+- data: {'mobilephone':'18605716435', 'pwd':'','regname':'小北'}
+  expect: {'status': 0, 'code': '20103', 'data': None, 'msg': '密码不能为空'}
+# 手机号、密码均为空
+- data: {'mobilephone':'', 'pwd':'','regname':'小北'}
+  expect: {'status': 0, 'code': '20103', 'data': None, 'msg': '手机号不能为空'}
+# 手机号过短
+- data: {'mobilephone': 1869571673, 'pwd': 123456,'regname':'小北'}
+  expect: {'status': 0, 'code': '20109', 'data': None, 'msg': '手机号码格式不正确'}
+# 手机号过长
+- data: {'mobilephone': 186957167355, 'pwd': 123456,'regname':'小北'}
+  expect: {'status': 0, 'code': '20109', 'data': None, 'msg': '手机号码格式不正确'}
+# 手机号夹杂字符
+- data: {'mobilephone': 1869@71#735, 'pwd': 123456,'regname':'小北'}
+  expect: {'status': 0, 'code': '20109', 'data': None, 'msg': '手机号码格式不正确'}
+# 手机号格式不正确
+- data: {'mobilephone': 11111111111, 'pwd': 123456,'regname':'小北'}
+  expect: {'status': 0, 'code': '20109', 'data': None, 'msg': '手机号码格式不正确'}
